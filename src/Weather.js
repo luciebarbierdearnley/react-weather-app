@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Weather.css";
+import DateDisplay from "./DateDisplay.js";
+
 import axios from "axios";
 
 export default function Weather(props) {
@@ -7,7 +9,9 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState(null);
   function showData(response) {
     console.log(response.data);
+
     setWeatherData({
+      date: new Date(response.data.time * 1000),
       temperature: response.data.temperature.current,
       humidity: response.data.temperature.humidity,
       description: response.data.condition.description,
@@ -34,7 +38,9 @@ export default function Weather(props) {
         </form>
         <h1>London</h1>
         <ul>
-          <li>Wednesday 07:00</li>
+          <li>
+            <DateDisplay date={weatherData.date} />
+          </li>
           <li>Mostly cloudy</li>
         </ul>
         <div className="row">
