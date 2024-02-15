@@ -10,7 +10,11 @@ export default function Weather() {
           placeholder="Enter a city..."
           className="form-input"
         />
-        <input type="submit" value="Search" className="btn btn-primary" />
+        <input
+          type="submit"
+          value="Search"
+          className="btn btn-primary search-button"
+        />
       </form>
       <h1>London</h1>
       <ul>
@@ -22,7 +26,8 @@ export default function Weather() {
           <img
             src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
             alt="Very cloudy"></img>
-          6ºC
+          <span className="temp">6</span>
+          <span className="unit">ºC</span>
         </div>
         <div className="col-6">
           <ul>
@@ -32,7 +37,6 @@ export default function Weather() {
           </ul>
         </div>
       </div>
-      <p>Hello world</p>;
     </div>
   );
 }

@@ -6,7 +6,7 @@ export default function App() {
     <div className="App">
       <Weather />
 
-      <p>
+      <footer>
         This project was coded by Lucie Barbier-Dearnley. Open-sourced on{" "}
         <a
           href="https://github.com/luciebarbierdearnley/react-weather-app"
@@ -14,7 +14,7 @@ export default function App() {
           rel="noreferrer">
           GitHub
         </a>
-      </p>
+      </footer>
     </div>
   );
 }
