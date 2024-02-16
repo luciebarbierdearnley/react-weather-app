@@ -5,6 +5,7 @@ import DateDisplay from "./DateDisplay.js";
 import axios from "axios";
 
 export default function Weather(props) {
+  const [city, setCity] = useState(props.defaultCity);
   const [ready, setReady] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
   function showData(response) {
@@ -16,19 +17,35 @@ export default function Weather(props) {
       humidity: response.data.temperature.humidity,
       description: response.data.condition.description,
       wind: response.data.wind.speed,
-      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/cloudy.png",
+      iconUrl: response.data.condition.icon_url,
     });
     setReady(true);
+  }
+
+  function search() {
+    const apiKey = "d2fcf0to3278b4e6ab12b4d9a002d5f2";
+    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showData);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function updateCity(event) {
+    setCity(event.target.value);
   }
 
   if (ready) {
     return (
       <div className="Weather">
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Enter a city..."
             className="form-input"
+            onChange={updateCity}
           />
           <input
             type="submit"
@@ -36,12 +53,12 @@ export default function Weather(props) {
             className="btn btn-primary search-button"
           />
         </form>
-        <h1>London</h1>
+        <h1>{city}</h1>
         <ul>
           <li>
             <DateDisplay date={weatherData.date} />
           </li>
-          <li>Mostly cloudy</li>
+          <li>{weatherData.description}</li>
         </ul>
         <div className="row">
           <div className="col-6">
@@ -60,10 +77,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    const apiKey = "d2fcf0to3278b4e6ab12b4d9a002d5f2";
-    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(showData);
-
+    search();
     return "Loading...";
   }
 }

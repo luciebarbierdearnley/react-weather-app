@@ -11,11 +11,11 @@ export default function DateDisplay(props) {
     "Saturday",
   ];
   const day = days[props.date.getDay()];
-  const hours = props.date.getHours();
+  let hours = props.date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  const minutes = props.date.getMinutes();
+  let minutes = props.date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
