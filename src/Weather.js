@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import DateDisplay from "./DateDisplay.js";
+import DisplayUnits from "./DisplayUnits.js";
 
 import axios from "axios";
 
@@ -8,6 +9,7 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [ready, setReady] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
+
   function showData(response) {
     console.log(response.data);
 
@@ -62,9 +64,10 @@ export default function Weather(props) {
         </ul>
         <div className="row">
           <div className="col-6">
-            <img src={weatherData.iconUrl} alt={weatherData.description}></img>
-            <span className="temp">{Math.round(weatherData.temperature)}</span>
-            <span className="unit">ºC</span>
+            <DisplayUnits
+              celsius={Math.round(weatherData.temperature)}
+              icon={weatherData.iconUrl}
+            />
           </div>
           <div className="col-6">
             <ul>

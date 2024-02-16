@@ -39,11 +39,3 @@
 .Weather .row {
   margin-top: 20px;
 }
-.Weather .temp {
-  font-size: 70px;
-  vertical-align: middle;
-}
-
-.Weather .unit {
-  font-size: 25px;
-}
