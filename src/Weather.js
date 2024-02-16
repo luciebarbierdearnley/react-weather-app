@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Weather.css";
 import DateDisplay from "./DateDisplay.js";
 import DisplayUnits from "./DisplayUnits.js";
+import WeatherForecast from "./WeatherForecast.js";
 
 import axios from "axios";
 
@@ -77,6 +78,7 @@ export default function Weather(props) {
             </ul>
           </div>
         </div>
+        <WeatherForecast icon={weatherData.iconUrl} />
       </div>
     );
   } else {
