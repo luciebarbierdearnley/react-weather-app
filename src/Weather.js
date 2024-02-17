@@ -15,6 +15,7 @@ export default function Weather(props) {
     console.log(response.data);
 
     setWeatherData({
+      city: response.data.city,
       date: new Date(response.data.time * 1000),
       temperature: response.data.temperature.current,
       humidity: response.data.temperature.humidity,
@@ -56,7 +57,7 @@ export default function Weather(props) {
             className="btn btn-primary search-button"
           />
         </form>
-        <h1>{city}</h1>
+        <h1>{weatherData.city}</h1>
         <ul>
           <li>
             <DateDisplay date={weatherData.date} />
@@ -78,7 +79,7 @@ export default function Weather(props) {
             </ul>
           </div>
         </div>
-        <WeatherForecast icon={weatherData.iconUrl} city={city} />
+        <WeatherForecast icon={weatherData.iconUrl} city={weatherData.city} />
       </div>
     );
   } else {
