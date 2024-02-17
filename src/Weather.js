@@ -62,7 +62,7 @@ export default function Weather(props) {
           <li>
             <DateDisplay date={weatherData.date} />
           </li>
-          <li>{weatherData.description}</li>
+          <li className="first-description">{weatherData.description}</li>
         </ul>
         <div className="row">
           <div className="col-6">
@@ -71,7 +71,7 @@ export default function Weather(props) {
               icon={weatherData.iconUrl}
             />
           </div>
-          <div className="col-6">
+          <div className="col-6 weatherInfo">
             <ul>
               <li>Humidity: {weatherData.humidity} %</li>
               <li>Description: {weatherData.description}</li>
@@ -84,6 +84,6 @@ export default function Weather(props) {
     );
   } else {
     search();
-    return "Loading...";
+    return null;
   }
 }

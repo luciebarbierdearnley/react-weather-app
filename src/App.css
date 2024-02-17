@@ -1,9 +1,16 @@
-.App {
+.App .container {
   max-width: 800px;
   margin: 30px auto;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(https://letdream.ap-south-1.linodeobjects.com/opendream.ori/4944764cfbe909488b_0.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid grey;
+  padding: 30px;
+  border-radius: 10px;
 }
 
 .App footer {
-  margin: 20px;
+  margin: 10px;
   text-align: center;
 }
