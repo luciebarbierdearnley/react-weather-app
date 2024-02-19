@@ -1,6 +1,6 @@
 .App .container {
   max-width: 800px;
-  margin: 30px auto;
+  margin: 100px auto;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url(https://letdream.ap-south-1.linodeobjects.com/opendream.ori/4944764cfbe909488b_0.jpg);
   background-repeat: no-repeat;
